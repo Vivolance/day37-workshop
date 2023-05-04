@@ -61,6 +61,7 @@ public class FileUploadController {
         Optional<Post> r = this.ffSvc.getPostById(postId);
         Post p = r.get();
         String encodedString  = Base64.getEncoder().encodeToString(p.getImage());
+        //Return as a response entity which is a stringify string
         JsonObject payload = Json.createObjectBuilder()
                                 .add("image", BASE64_PREFIX + encodedString)
                                 .build();
